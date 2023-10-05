@@ -13,7 +13,7 @@ const ContentFrame = styled.div`
 const ExplainContent = () => {
   return (
     <ContentFrame>
-
+      
     </ContentFrame>
   )
 }
