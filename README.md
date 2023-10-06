@@ -11,7 +11,7 @@
 - **`진행 목적` :** Git, CSS(styled component) 및 state 관리 연습
 - **`한줄 소개` :** 태양계 행성 공전 시뮬레이션 및 천체 정보
 - **`구현 영역` :** 프론트엔드
-- **`배포 링크` :** 차후 진행 예정
+- **`배포 링크` :** <a href="https://solarsystem-sable.vercel.app/" target="_blank">🌐 SOLAR SYSTEM</a>
 
 <br />
 
