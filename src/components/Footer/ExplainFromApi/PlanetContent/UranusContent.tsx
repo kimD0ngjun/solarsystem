@@ -94,14 +94,14 @@ const UranusContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <UranusItem src="../../../../../public/assets/PlanetImg/Uranus.svg" alt="Uranus" clickUranus={clickUranus} onClick={handleClickUranus}/>
+      <UranusItem src="/public/assets/PlanetImg/Uranus.svg" alt="Uranus" clickUranus={clickUranus} onClick={handleClickUranus}/>
       <TitaniaOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickTitania}  
       >
-        <TitaniaItem src="../../../../../public/assets/PlanetImg/Titania.svg" alt="Titania" clickTitania={clickTitania}/>
+        <TitaniaItem src="/public/assets/PlanetImg/Titania.svg" alt="Titania" clickTitania={clickTitania}/>
       </TitaniaOrbit>
     </>
   )

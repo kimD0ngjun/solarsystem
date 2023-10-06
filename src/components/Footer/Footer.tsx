@@ -68,7 +68,7 @@ const Footer = () => {
       <Container isChangedWidth={isChangedWidth}>
         <FooterSection isChangedWidth={isChangedWidth}>
           <ReturnButton 
-            src="../../../public/assets/ReturnButton.svg"
+            src="/public/assets/ReturnButton.svg"
             alt="뒤로 가기" className={isChangedWidth ? 'active' : ''} 
             onClick={handleShorten}
           />

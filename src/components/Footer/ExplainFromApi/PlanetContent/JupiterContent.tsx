@@ -277,14 +277,14 @@ const JupiterContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <JupiterItem src="../../../../../public/assets/PlanetImg/Jupiter.svg" alt="Jupiter" clickJupiter={clickJupiter} onClick={handleClickJupiter}/>
+      <JupiterItem src="/public/assets/PlanetImg/Jupiter.svg" alt="Jupiter" clickJupiter={clickJupiter} onClick={handleClickJupiter}/>
       <IoOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickIo}  
       >
-        <IoItem src="../../../../../public/assets/PlanetImg/Io.svg" alt="Io" clickIo={clickIo}/>
+        <IoItem src="/public/assets/PlanetImg/Io.svg" alt="Io" clickIo={clickIo}/>
       </IoOrbit>
       <EuropaOrbit 
         speed={speed} 
@@ -292,7 +292,7 @@ const JupiterContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickEuropa}  
       >
-        <EuropaItem src="../../../../../public/assets/PlanetImg/Europa.svg" alt="europa" clickEuropa={clickEuropa}/>
+        <EuropaItem src="/public/assets/PlanetImg/Europa.svg" alt="europa" clickEuropa={clickEuropa}/>
       </EuropaOrbit>
       <GanymedeOrbit 
         speed={speed} 
@@ -300,7 +300,7 @@ const JupiterContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickGanymede}  
       >
-        <GanymedeItem src="../../../../../public/assets/PlanetImg/Ganymede.svg" alt="ganymede" clickGanymede={clickGanymede}/>
+        <GanymedeItem src="/public/assets/PlanetImg/Ganymede.svg" alt="ganymede" clickGanymede={clickGanymede}/>
       </GanymedeOrbit>
       <CallistoOrbit 
         speed={speed} 
@@ -308,7 +308,7 @@ const JupiterContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickCallisto}  
       >
-        <CallistoItem src="../../../../../public/assets/PlanetImg/Callisto.svg" alt="callisto" clickCallisto={clickCallisto}/>
+        <CallistoItem src="/public/assets/PlanetImg/Callisto.svg" alt="callisto" clickCallisto={clickCallisto}/>
       </CallistoOrbit>
     </>
   )
