@@ -37,7 +37,7 @@ const VenusContent: React.FC = () => {
 
   return (
     <>
-      <VenusItem src="/public/assets/PlanetImg/Venus.svg" alt="Venus" clickVenus={clickVenus} onClick={handleClickVenus}/>
+      <VenusItem src="/assets/PlanetImg/Venus.svg" alt="Venus" clickVenus={clickVenus} onClick={handleClickVenus}/>
     </>
   )
 }

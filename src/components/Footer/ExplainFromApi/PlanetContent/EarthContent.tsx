@@ -93,14 +93,14 @@ const EarthContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <EarthItem src="/public/assets/PlanetImg/Earth.svg" alt="Earth" clickEarth={clickEarth} onClick={handleClickEarth}/>
+      <EarthItem src="/assets/PlanetImg/Earth.svg" alt="Earth" clickEarth={clickEarth} onClick={handleClickEarth}/>
       <MoonOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickMoon}  
       >
-        <MoonItem src="/public/assets/PlanetImg/Moon.svg" alt="moon" clickMoon={clickMoon}/>
+        <MoonItem src="//assets/PlanetImg/Moon.svg" alt="moon" clickMoon={clickMoon}/>
       </MoonOrbit>
     </>
   )

@@ -94,14 +94,14 @@ const NeptuneContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <NeptuneItem src="/public/assets/PlanetImg/Neptune.svg" alt="Neptune" clickNeptune={clickNeptune} onClick={handleClickNeptune}/>
+      <NeptuneItem src="/assets/PlanetImg/Neptune.svg" alt="Neptune" clickNeptune={clickNeptune} onClick={handleClickNeptune}/>
       <TritonOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickTriton}  
       >
-        <TritonItem src="/public/assets/PlanetImg/Triton.svg" alt="Triton" clickTriton={clickTriton}/>
+        <TritonItem src="/assets/PlanetImg/Triton.svg" alt="Triton" clickTriton={clickTriton}/>
       </TritonOrbit>
     </>
   )

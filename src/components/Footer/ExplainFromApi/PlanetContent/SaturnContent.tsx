@@ -151,14 +151,14 @@ const SaturnContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <SaturnItem src="/public/assets/PlanetImg/Saturn.svg" alt="Saturn" clickSaturn={clickSaturn} onClick={handleClickSaturn}/>
+      <SaturnItem src="/assets/PlanetImg/Saturn.svg" alt="Saturn" clickSaturn={clickSaturn} onClick={handleClickSaturn}/>
       <EnceladusOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickEnceladus}  
       >
-        <EnceladusItem src="/public/assets/PlanetImg/Enceladus.svg" alt="Enceladus" clickEnceladus={clickEnceladus}/>
+        <EnceladusItem src="/assets/PlanetImg/Enceladus.svg" alt="Enceladus" clickEnceladus={clickEnceladus}/>
       </EnceladusOrbit>
       <TitanOrbit 
         speed={speed} 
@@ -166,7 +166,7 @@ const SaturnContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickTitan}  
       >
-        <TitanItem src="/public/assets/PlanetImg/titan.svg" alt="Titan" clickTitan={clickTitan}/>
+        <TitanItem src="/assets/PlanetImg/titan.svg" alt="Titan" clickTitan={clickTitan}/>
       </TitanOrbit>
     </>
   )
