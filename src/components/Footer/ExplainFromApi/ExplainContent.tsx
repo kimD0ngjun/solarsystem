@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import styled from "styled-components";
 import contentData from "./utility/DetailDummyData";
 import { useAppSelector } from "../../../redux/hooks";
@@ -19,9 +19,12 @@ const ContentFrame = styled.div`
 `
 
 const ExplainContent = () => {
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const [displayText, setDisplayText] = useState<string>('');
 
-  const planetContents = {
+  const isChanged = useAppSelector((state:RootState) => state.changeWidth.isChanged);
+
+  const planetContents = useMemo(() => ({
     Sun: contentData.SunContent[0],
     Mercury: contentData.MercuryContent[0],
     Venus: contentData.VenusContent[0],
@@ -42,7 +45,7 @@ const ExplainContent = () => {
     Titania: contentData.UranusContent[1],
     Neptune: contentData.NeptuneContent[0],
     Triton: contentData.NeptuneContent[1],
-  };
+  }), []);
 
   const selectedPlanet = useAppSelector((state: RootState) => {
     if (state.sunContent.Sun) return 'Sun';
@@ -71,7 +74,7 @@ const ExplainContent = () => {
   useEffect(() => {
     let typingInterval: NodeJS.Timeout;
 
-    if (selectedPlanet) {
+    if (selectedPlanet && isChanged) {
       const description = planetContents[selectedPlanet];
       let index = 0;
 
@@ -80,21 +83,23 @@ const ExplainContent = () => {
       typingInterval = setInterval(() => {
         index++;
         setDisplayText(prevText => prevText + description[index]);
-        
-
+        if (contentRef.current) {
+          contentRef.current.scrollTop = contentRef.current.scrollHeight;}
         if (index === description.length - 1) {
           clearInterval(typingInterval);
         }
       }, 25);
+    } else {
+      setDisplayText('');
     }
 
     return () => {
       clearInterval(typingInterval);
     };
-  }, [selectedPlanet]);
+  }, [selectedPlanet, planetContents, isChanged]);
 
   return (
-    <ContentFrame>
+    <ContentFrame ref={contentRef}>
       {displayText}
     </ContentFrame>
   );
