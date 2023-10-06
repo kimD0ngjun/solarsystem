@@ -4,7 +4,7 @@ interface JupiterSystemContent {
   Jupiter: boolean;
   Io: boolean;
   Europa: boolean;
-  Ganymade: boolean;
+  Ganymede: boolean;
   Callisto: boolean;
 }
 
@@ -12,7 +12,7 @@ const initialState: JupiterSystemContent = {
   Jupiter: false,
   Io: false,
   Europa: false,
-  Ganymade: false,
+  Ganymede: false,
   Callisto: false,
 }
 
@@ -24,35 +24,35 @@ const jupiterContentSlice = createSlice({
       state.Jupiter = true;
       state.Io = false;
       state.Europa = false;
-      state.Ganymade = false;
+      state.Ganymede = false;
       state.Callisto = false;
     },
     ioClick: (state: JupiterSystemContent) => {
       state.Jupiter = false;
       state.Io = true;
       state.Europa = false;
-      state.Ganymade = false;
+      state.Ganymede = false;
       state.Callisto = false;
     },
     europaClick: (state: JupiterSystemContent) => {
       state.Jupiter = false;
       state.Io = false;
       state.Europa = true;
-      state.Ganymade = false;
+      state.Ganymede = false;
       state.Callisto = false;
     },
     ganymadeClick: (state: JupiterSystemContent) => {
       state.Jupiter = false;
       state.Io = false;
       state.Europa = false;
-      state.Ganymade = true;
+      state.Ganymede = true;
       state.Callisto = false;
     },
     callistoClick: (state: JupiterSystemContent) => {
       state.Jupiter = false;
       state.Io = false;
       state.Europa = false;
-      state.Ganymade = false;
+      state.Ganymede = false;
       state.Callisto = true;
     },
     resetJupiterClick: () => initialState,

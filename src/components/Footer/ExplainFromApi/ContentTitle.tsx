@@ -236,7 +236,7 @@ const ExplainTitle = () => {
   const clickJupiter = useAppSelector((state: RootState) => state.jupiterContent.Jupiter);
   const clickIo = useAppSelector((state: RootState) => state.jupiterContent.Io);
   const clickEuropa = useAppSelector((state: RootState) => state.jupiterContent.Europa);
-  const clickGanymede = useAppSelector((state: RootState) => state.jupiterContent.Ganymade);
+  const clickGanymede = useAppSelector((state: RootState) => state.jupiterContent.Ganymede);
   const clickCallisto = useAppSelector((state: RootState) => state.jupiterContent.Callisto);
   const clickSaturn = useAppSelector((state: RootState) => state.saturnContent.Saturn);
   const clickEnceladus = useAppSelector((state: RootState) => state.saturnContent.Enceladus);

@@ -7,7 +7,7 @@ import { RootState } from "../../../redux/store";
 const ContentFrame = styled.div`
   width: 100%;
   height: 100%;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   font-size: 15px;
   line-height: 200%;
   padding: 20rem;
@@ -19,114 +19,85 @@ const ContentFrame = styled.div`
 `
 
 const ExplainContent = () => {
-  const clickSun = useAppSelector((state: RootState) => state.sunContent.Sun);
-  const clickMercury = useAppSelector((state: RootState) => state.mercuryContent.Mercury);
-  const clickVenus = useAppSelector((state: RootState) => state.venusContent.Venus);
-  const clickEarth = useAppSelector((state: RootState) => state.earthContent.Earth);
-  const clickMoon = useAppSelector((state: RootState) => state.earthContent.Moon);
-  const clickMars = useAppSelector((state: RootState) => state.marsContent.Mars);
-  const clickPhobos = useAppSelector((state: RootState) => state.marsContent.Phobos);
-  const clickDeimos = useAppSelector((state: RootState) => state.marsContent.Deimos);
-  const clickJupiter = useAppSelector((state: RootState) => state.jupiterContent.Jupiter);
-  const clickIo = useAppSelector((state: RootState) => state.jupiterContent.Io);
-  const clickEuropa = useAppSelector((state: RootState) => state.jupiterContent.Europa);
-  const clickGanymede = useAppSelector((state: RootState) => state.jupiterContent.Ganymade);
-  const clickCallisto = useAppSelector((state: RootState) => state.jupiterContent.Callisto);
-  const clickSaturn = useAppSelector((state: RootState) => state.saturnContent.Saturn);
-  const clickEnceladus = useAppSelector((state: RootState) => state.saturnContent.Enceladus);
-  const clickTitan = useAppSelector((state: RootState) => state.saturnContent.Titan);
-  const clickUranus = useAppSelector((state: RootState) => state.uranusContent.Uranus);
-  const clickTitania = useAppSelector((state: RootState) => state.uranusContent.Titania);
-  const clickNeptune = useAppSelector((state: RootState) => state.neptuneContent.Neptune);
-  const clickTriton = useAppSelector((state: RootState) => state.neptuneContent.Triton);
+  const [displayText, setDisplayText] = useState<string>('');
 
-  let selectedDetail: string = "";
+  const planetContents = {
+    Sun: contentData.SunContent[0],
+    Mercury: contentData.MercuryContent[0],
+    Venus: contentData.VenusContent[0],
+    Earth: contentData.EarthContent[0],
+    Moon: contentData.EarthContent[1],
+    Mars: contentData.MarsContent[0],
+    Phobos: contentData.MarsContent[1],
+    Deimos: contentData.MarsContent[2],
+    Jupiter: contentData.JupiterContent[0],
+    Io: contentData.JupiterContent[1],
+    Europa: contentData.JupiterContent[2],
+    Ganymede: contentData.JupiterContent[3],
+    Callisto: contentData.JupiterContent[4],
+    Saturn: contentData.SaturnContent[0],
+    Enceladus: contentData.SaturnContent[1],
+    Titan: contentData.SaturnContent[2],
+    Uranus: contentData.UranusContent[0],
+    Titania: contentData.UranusContent[1],
+    Neptune: contentData.NeptuneContent[0],
+    Triton: contentData.NeptuneContent[1],
+  };
 
-  if (clickSun) {
-    selectedDetail = contentData.SunContent[0];
-  } else if (clickMercury) {
-    selectedDetail = contentData.MercuryContent[0];
-  } else if (clickVenus) {
-    selectedDetail = contentData.VenusContent[0];
-  } else if (clickEarth) {
-    selectedDetail = contentData.EarthContent[0];
-  } else if (clickMoon) {
-    selectedDetail = contentData.EarthContent[1];
-  } else if (clickMars) {
-    selectedDetail = contentData.MarsContent[0];
-  } else if (clickPhobos) {
-    selectedDetail = contentData.MarsContent[1];
-  } else if (clickDeimos) {
-    selectedDetail = contentData.MarsContent[2];
-  } else if (clickJupiter) {
-    selectedDetail = contentData.JupiterContent[0];
-  } else if (clickIo) {
-    selectedDetail = contentData.JupiterContent[1];
-  } else if (clickEuropa) {
-    selectedDetail = contentData.JupiterContent[2];
-  } else if (clickGanymede) {
-    selectedDetail = contentData.JupiterContent[3];
-  } else if (clickCallisto) {
-    selectedDetail = contentData.JupiterContent[4];
-  } else if (clickSaturn) {
-    selectedDetail = contentData.SaturnContent[0];
-  } else if (clickEnceladus) {
-    selectedDetail = contentData.SaturnContent[1];
-  } else if (clickTitan) {
-    selectedDetail = contentData.SaturnContent[2];
-  } else if (clickUranus) {
-    selectedDetail = contentData.UranusContent[0];
-  } else if (clickTitania) {
-    selectedDetail = contentData.UranusContent[1];
-  } else if (clickNeptune) {
-    selectedDetail = contentData.NeptuneContent[0];
-  } else if (clickTriton) {
-    selectedDetail = contentData.NeptuneContent[1];
-  }
+  const selectedPlanet = useAppSelector((state: RootState) => {
+    if (state.sunContent.Sun) return 'Sun';
+    if (state.mercuryContent.Mercury) return 'Mercury';
+    if (state.venusContent.Venus) return 'Venus';
+    if (state.earthContent.Earth) return 'Earth';
+    if (state.earthContent.Moon) return 'Moon';
+    if (state.marsContent.Mars) return 'Mars';
+    if (state.marsContent.Phobos) return 'Phobos';
+    if (state.marsContent.Deimos) return 'Deimos';
+    if (state.jupiterContent.Jupiter) return 'Jupiter';
+    if (state.jupiterContent.Io) return 'Io';
+    if (state.jupiterContent.Europa) return 'Europa';
+    if (state.jupiterContent.Ganymede) return 'Ganymede';
+    if (state.jupiterContent.Callisto) return 'Callisto';
+    if (state.saturnContent.Saturn) return 'Saturn';
+    if (state.saturnContent.Enceladus) return 'Enceladus';
+    if (state.saturnContent.Titan) return 'Titan';
+    if (state.uranusContent.Uranus) return 'Uranus';
+    if (state.uranusContent.Titania) return 'Titania';
+    if (state.neptuneContent.Neptune) return 'Neptune';
+    if (state.neptuneContent.Triton) return 'Triton';
+    return '';
+  });
 
-  const [displayText, setDisplayText] = useState('');
-  
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setDisplayText((prevText) => prevText + selectedDetail[index]);
-      index++;
-      if (index === selectedDetail.length) {
-        clearInterval(interval);
-      }
-    }, 50);
-    
+    let typingInterval: NodeJS.Timeout;
+
+    if (selectedPlanet) {
+      const description = planetContents[selectedPlanet];
+      let index = 0;
+
+      setDisplayText('');
+
+      typingInterval = setInterval(() => {
+        index++;
+        setDisplayText(prevText => prevText + description[index]);
+        
+
+        if (index === description.length - 1) {
+          clearInterval(typingInterval);
+        }
+      }, 25);
+    }
+
     return () => {
-      clearInterval(interval);
+      clearInterval(typingInterval);
     };
-  }, [
-    clickSun, 
-    clickMercury, 
-    clickVenus, 
-    clickEarth, 
-    clickMoon, 
-    clickMars, 
-    clickPhobos,
-    clickDeimos,
-    clickJupiter,
-    clickIo,
-    clickEuropa,
-    clickGanymede,
-    clickCallisto,
-    clickSaturn,
-    clickEnceladus,
-    clickTitan,
-    clickUranus,
-    clickTitania,
-    clickNeptune,
-    clickTriton    
-  ]);
+  }, [selectedPlanet]);
 
   return (
     <ContentFrame>
       {displayText}
     </ContentFrame>
-  )
-}
+  );
+};
 
-export default ExplainContent
+export default ExplainContent;
