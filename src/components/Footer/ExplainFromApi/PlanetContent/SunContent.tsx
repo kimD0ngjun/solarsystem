@@ -37,7 +37,7 @@ const SunContent: React.FC = () => {
 
   return (
     <>
-      <SunItem src="/public/assets/PlanetImg/Sun.svg" alt="Mercury" clickSun={clickSun} onClick={handleClickSun}/>
+      <SunItem src="/assets/PlanetImg/Sun.svg" alt="Mercury" clickSun={clickSun} onClick={handleClickSun}/>
     </>
   )
 }

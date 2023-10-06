@@ -156,7 +156,7 @@ const MarsContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickPhobos}  
       >
-        <PhobosItem src="/public/assets/PlanetImg/Phobos.svg" alt="phobos" clickPhobos={clickPhobos}/>
+        <PhobosItem src="/assets/PlanetImg/Phobos.svg" alt="phobos" clickPhobos={clickPhobos}/>
       </PhobosOrbit>
       <DeimosOrbit 
         speed={speed} 
@@ -164,7 +164,7 @@ const MarsContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickDeimos}  
       >
-        <DeimosItem src="/public/assets/PlanetImg/Deimos.svg" alt="deimos" clickDeimos={clickDeimos}/>
+        <DeimosItem src="/assets/PlanetImg/Deimos.svg" alt="deimos" clickDeimos={clickDeimos}/>
       </DeimosOrbit>
     </>
   )
