@@ -100,7 +100,7 @@ const EarthContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickMoon}  
       >
-        <MoonItem src="//assets/PlanetImg/Moon.svg" alt="moon" clickMoon={clickMoon}/>
+        <MoonItem src="/assets/PlanetImg/Moon.svg" alt="moon" clickMoon={clickMoon}/>
       </MoonOrbit>
     </>
   )

@@ -149,7 +149,7 @@ const MarsContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <MarsItem src="/public/assets/PlanetImg/Mars.svg" alt="Mars" clickMars={clickMars} onClick={handleClickMars}/>
+      <MarsItem src="/assets/PlanetImg/Mars.svg" alt="Mars" clickMars={clickMars} onClick={handleClickMars}/>
       <PhobosOrbit 
         speed={speed} 
         isPaused={isPaused} 
