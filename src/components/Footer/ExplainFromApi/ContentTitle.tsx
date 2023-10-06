@@ -208,6 +208,14 @@ const ExplainTitleText = styled.div`
 	grid-column-end: 3;
   grid-row-start: 1;
 	grid-row-end: 2;
+
+  @media (max-width: 1200px) {
+    grid-column-start: 1;
+	  grid-column-end: 2;
+    grid-row-start: 2;
+	  grid-row-end: 3;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -236,7 +244,7 @@ const ExplainTitle = () => {
   const clickJupiter = useAppSelector((state: RootState) => state.jupiterContent.Jupiter);
   const clickIo = useAppSelector((state: RootState) => state.jupiterContent.Io);
   const clickEuropa = useAppSelector((state: RootState) => state.jupiterContent.Europa);
-  const clickGanymede = useAppSelector((state: RootState) => state.jupiterContent.Ganymade);
+  const clickGanymede = useAppSelector((state: RootState) => state.jupiterContent.Ganymede);
   const clickCallisto = useAppSelector((state: RootState) => state.jupiterContent.Callisto);
   const clickSaturn = useAppSelector((state: RootState) => state.saturnContent.Saturn);
   const clickEnceladus = useAppSelector((state: RootState) => state.saturnContent.Enceladus);
