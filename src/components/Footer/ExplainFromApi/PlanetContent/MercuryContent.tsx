@@ -37,7 +37,7 @@ const MercuryContent: React.FC = () => {
 
   return (
     <>
-      <MercuryItem src="../../../../../public/assets/PlanetImg/Mercury.svg" alt="Mercury" clickMercury={clickMercury} onClick={handleClickMercury}/>
+      <MercuryItem src="/public/assets/PlanetImg/Mercury.svg" alt="Mercury" clickMercury={clickMercury} onClick={handleClickMercury}/>
     </>
   )
 }

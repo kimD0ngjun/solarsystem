@@ -70,13 +70,13 @@ const MyProfile = () => {
     <ProfileContainer className={isToggled ? 'active' : ''}>      
       <Icons>
         <IconBox href="https://github.com/kimD0ngjun/solarsystem" target="_blank">
-          <img style={{width: `45px`, height: `45px`}} src="../../../public/assets/GitHub.svg" alt="gitHub" />
+          <img style={{width: `45px`, height: `45px`}} src="/public/assets/GitHub.svg" alt="gitHub" />
         </IconBox>
        <IconBox href="mailto:chickentasty0112@gmail.com" target="_blank">
-         <img style={{width: `45px`, height: `45px`}} src="../../../public/assets/Gmail.svg" alt="gmail" />
+         <img style={{width: `45px`, height: `45px`}} src="/public/assets/Gmail.svg" alt="gmail" />
        </IconBox>
        <IconBox href="https://instagram.com/00ngjun?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==" target="_blank">
-         <img style={{width: `45px`, height: `45px`}} src="../../../public/assets/Instagram.svg" alt="instagram" />
+         <img style={{width: `45px`, height: `45px`}} src="/public/assets/Instagram.svg" alt="instagram" />
        </IconBox>
       </Icons>
       <Text>

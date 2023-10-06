@@ -79,7 +79,7 @@ const Logo = () => {
 
   return (
     <LogoBox>
-      <LogoImg src="../../../public/assets/Logo.svg" alt="logo" onClick={handleToggle} />
+      <LogoImg src="/public/assets/Logo.svg" alt="logo" onClick={handleToggle} />
       <Text>click the logo ◡̈</Text>
     </LogoBox>
   )
