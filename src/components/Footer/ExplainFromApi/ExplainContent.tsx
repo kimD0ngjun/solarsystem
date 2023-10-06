@@ -16,6 +16,10 @@ const ContentFrame = styled.div`
 	grid-column-end: 3;
   grid-row-start: 2;
 	grid-row-end: 3;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `
 
 const ExplainContent = () => {
