@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import sun from "../../../../assets/PlanetImg/Sun.svg"
+// import sun from "../../../../../public/assets/PlanetImg/Sun.svg"
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
 import { sunClick } from "../../../../redux/contentClick/SunContentSlice";
@@ -37,7 +37,7 @@ const SunContent: React.FC = () => {
 
   return (
     <>
-      <SunItem src={sun} alt="Mercury" clickSun={clickSun} onClick={handleClickSun}/>
+      <SunItem src="../../../../../public/assets/PlanetImg/Sun.svg" alt="Mercury" clickSun={clickSun} onClick={handleClickSun}/>
     </>
   )
 }

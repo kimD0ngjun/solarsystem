@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import mercury from "../../../../assets/PlanetImg/Mercury.svg"
+// import mercury from "../../../../../public/assets/PlanetImg/Mercury.svg"
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
 import { mercuryClick } from "../../../../redux/contentClick/MercuryContentSlice";
@@ -37,7 +37,7 @@ const MercuryContent: React.FC = () => {
 
   return (
     <>
-      <MercuryItem src={mercury} alt="Mercury" clickMercury={clickMercury} onClick={handleClickMercury}/>
+      <MercuryItem src="../../../../../public/assets/PlanetImg/Mercury.svg" alt="Mercury" clickMercury={clickMercury} onClick={handleClickMercury}/>
     </>
   )
 }

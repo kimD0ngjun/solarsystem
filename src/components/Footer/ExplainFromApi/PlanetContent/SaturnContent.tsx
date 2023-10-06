@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
-import saturn from "../../../../assets/PlanetImg/Saturn.svg";
-import enceladus from "../../../../assets/PlanetImg/Enceladus.svg";
-import titan from "../../../../assets/PlanetImg/titan.svg";
+// import saturn from "../../../../../public/assets/PlanetImg/Saturn.svg";
+// import enceladus from "../../../../../public/assets/PlanetImg/Enceladus.svg";
+// import titan from "../../../../../public/assets/PlanetImg/titan.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
@@ -151,14 +151,14 @@ const SaturnContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <SaturnItem src={saturn} alt="Saturn" clickSaturn={clickSaturn} onClick={handleClickSaturn}/>
+      <SaturnItem src="../../../../../public/assets/PlanetImg/Saturn.svg" alt="Saturn" clickSaturn={clickSaturn} onClick={handleClickSaturn}/>
       <EnceladusOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickEnceladus}  
       >
-        <EnceladusItem src={enceladus} alt="Enceladus" clickEnceladus={clickEnceladus}/>
+        <EnceladusItem src="../../../../../public/assets/PlanetImg/Enceladus.svg" alt="Enceladus" clickEnceladus={clickEnceladus}/>
       </EnceladusOrbit>
       <TitanOrbit 
         speed={speed} 
@@ -166,7 +166,7 @@ const SaturnContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickTitan}  
       >
-        <TitanItem src={titan} alt="Titan" clickTitan={clickTitan}/>
+        <TitanItem src="../../../../../public/assets/PlanetImg/titan.svg" alt="Titan" clickTitan={clickTitan}/>
       </TitanOrbit>
     </>
   )

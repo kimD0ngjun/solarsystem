@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import venus from "../../../../assets/PlanetImg/Venus.svg"
+// import venus from "../../../../../public/assets/PlanetImg/Venus.svg"
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
 import { venusClick } from "../../../../redux/contentClick/VenusContentSlice";
@@ -37,7 +37,7 @@ const VenusContent: React.FC = () => {
 
   return (
     <>
-      <VenusItem src={venus} alt="Venus" clickVenus={clickVenus} onClick={handleClickVenus}/>
+      <VenusItem src="../../../../../public/assets/PlanetImg/Venus.svg" alt="Venus" clickVenus={clickVenus} onClick={handleClickVenus}/>
     </>
   )
 }
