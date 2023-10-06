@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import neptune from "../../../../assets/PlanetImg/Neptune.svg";
-import triton from "../../../../assets/PlanetImg/Triton.svg";
+import neptune from "../../../../../public/assets/PlanetImg/Neptune.svg";
+import triton from "../../../../../public/assets/PlanetImg/Triton.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";

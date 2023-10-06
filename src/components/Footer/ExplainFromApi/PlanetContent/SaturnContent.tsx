@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
-import saturn from "../../../../assets/PlanetImg/Saturn.svg";
-import enceladus from "../../../../assets/PlanetImg/Enceladus.svg";
-import titan from "../../../../assets/PlanetImg/titan.svg";
+import saturn from "../../../../../public/assets/PlanetImg/Saturn.svg";
+import enceladus from "../../../../../public/assets/PlanetImg/Enceladus.svg";
+import titan from "../../../../../public/assets/PlanetImg/titan.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";

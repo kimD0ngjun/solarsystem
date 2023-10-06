@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import gitHub from "../../assets/GitHub.svg"
-import gmail from "../../assets/Gmail.svg"
-import instagram from "../../assets/Instagram.svg"
+import gitHub from "../../../public/assets/GitHub.svg"
+import gmail from "../../../public/assets/Gmail.svg"
+import instagram from "../../../public/assets/Instagram.svg"
 import { useAppSelector } from "../../redux/hooks"
 import { RootState } from "../../redux/store"
 

@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import uranus from "../../../../assets/PlanetImg/Uranus.svg";
-import titania from "../../../../assets/PlanetImg/Titania.svg";
+import uranus from "../../../../../public/assets/PlanetImg/Uranus.svg";
+import titania from "../../../../../public/assets/PlanetImg/Titania.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";

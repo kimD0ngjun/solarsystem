@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import earth from "../../../../assets/PlanetImg/Earth.svg";
-import moon from "../../../../assets/PlanetImg/Moon.svg";
+import earth from "../../../../../public/assets/PlanetImg/Earth.svg";
+import moon from "../../../../../public/assets/PlanetImg/Moon.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";

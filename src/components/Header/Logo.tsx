@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import logo from "../../assets/Logo.svg"
+import logo from "../../../public/assets/Logo.svg"
 import { AppDispatch } from "../../redux/store";
 import { useAppDispatch } from "../../redux/hooks";
 import { setToggle } from "../../redux/ToggleSlice";

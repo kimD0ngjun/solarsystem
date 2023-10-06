@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
-import mars from "../../../../assets/PlanetImg/Mars.svg";
-import phobos from "../../../../assets/PlanetImg/Phobos.svg";
-import deimos from "../../../../assets/PlanetImg/Deimos.svg";
+import mars from "../../../../../public/assets/PlanetImg/Mars.svg";
+import phobos from "../../../../../public/assets/PlanetImg/Phobos.svg";
+import deimos from "../../../../../public/assets/PlanetImg/Deimos.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";

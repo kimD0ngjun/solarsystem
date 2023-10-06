@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TimeCounter from "./TimeCounter"
 import Explain from "./Explain";
 import { ChangeWidthProps } from '../../common/types'
-import returnBtn from "../../assets/ReturnButton.svg"
+import returnBtn from "../../../public/assets/ReturnButton.svg"
 
 import { useAppSelector, useAppDispatch } from '../../redux/hooks'
 import { RootState, AppDispatch } from '../../redux/store'

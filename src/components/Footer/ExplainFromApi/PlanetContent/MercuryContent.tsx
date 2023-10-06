@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import mercury from "../../../../assets/PlanetImg/Mercury.svg"
+import mercury from "../../../../../public/assets/PlanetImg/Mercury.svg"
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
 import { mercuryClick } from "../../../../redux/contentClick/MercuryContentSlice";

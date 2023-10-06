@@ -1,9 +1,9 @@
 import styled, { css, keyframes } from "styled-components";
-import jupiter from "../../../../assets/PlanetImg/Jupiter.svg";
-import io from "../../../../assets/PlanetImg/Io.svg";
-import europa from "../../../../assets/PlanetImg/Europa.svg";
-import ganymede from "../../../../assets/PlanetImg/Ganymede.svg";
-import callisto from "../../../../assets/PlanetImg/Callisto.svg";
+import jupiter from "../../../../../public/assets/PlanetImg/Jupiter.svg";
+import io from "../../../../../public/assets/PlanetImg/Io.svg";
+import europa from "../../../../../public/assets/PlanetImg/Europa.svg";
+import ganymede from "../../../../../public/assets/PlanetImg/Ganymede.svg";
+import callisto from "../../../../../public/assets/PlanetImg/Callisto.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
