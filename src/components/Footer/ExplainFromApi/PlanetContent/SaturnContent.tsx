@@ -166,7 +166,7 @@ const SaturnContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickTitan}  
       >
-        <TitanItem src="/assets/PlanetImg/titan.svg" alt="Titan" clickTitan={clickTitan}/>
+        <TitanItem src="/assets/PlanetImg/Titan.svg" alt="Titan" clickTitan={clickTitan}/>
       </TitanOrbit>
     </>
   )
