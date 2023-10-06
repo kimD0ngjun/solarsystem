@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import earth from "../../../../../public/assets/PlanetImg/Earth.svg";
-import moon from "../../../../../public/assets/PlanetImg/Moon.svg";
+// import earth from "../../../../../public/assets/PlanetImg/Earth.svg";
+// import moon from "../../../../../public/assets/PlanetImg/Moon.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
@@ -93,14 +93,14 @@ const EarthContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <EarthItem src={earth} alt="Earth" clickEarth={clickEarth} onClick={handleClickEarth}/>
+      <EarthItem src="../../../../../public/assets/PlanetImg/Earth.svg" alt="Earth" clickEarth={clickEarth} onClick={handleClickEarth}/>
       <MoonOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickMoon}  
       >
-        <MoonItem src={moon} alt="moon" clickMoon={clickMoon}/>
+        <MoonItem src="../../../../../public/assets/PlanetImg/Moon.svg" alt="moon" clickMoon={clickMoon}/>
       </MoonOrbit>
     </>
   )

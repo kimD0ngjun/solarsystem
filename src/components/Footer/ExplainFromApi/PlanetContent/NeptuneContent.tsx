@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import neptune from "../../../../../public/assets/PlanetImg/Neptune.svg";
-import triton from "../../../../../public/assets/PlanetImg/Triton.svg";
+// import neptune from "../../../../../public/assets/PlanetImg/Neptune.svg";
+// import triton from "../../../../../public/assets/PlanetImg/Triton.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
@@ -94,14 +94,14 @@ const NeptuneContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <NeptuneItem src={neptune} alt="Neptune" clickNeptune={clickNeptune} onClick={handleClickNeptune}/>
+      <NeptuneItem src="../../../../../public/assets/PlanetImg/Neptune.svg" alt="Neptune" clickNeptune={clickNeptune} onClick={handleClickNeptune}/>
       <TritonOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickTriton}  
       >
-        <TritonItem src={triton} alt="Triton" clickTriton={clickTriton}/>
+        <TritonItem src="../../../../../public/assets/PlanetImg/Triton.svg" alt="Triton" clickTriton={clickTriton}/>
       </TritonOrbit>
     </>
   )

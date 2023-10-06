@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
-import mars from "../../../../../public/assets/PlanetImg/Mars.svg";
-import phobos from "../../../../../public/assets/PlanetImg/Phobos.svg";
-import deimos from "../../../../../public/assets/PlanetImg/Deimos.svg";
+// import mars from "../../../../../public/assets/PlanetImg/Mars.svg";
+// import phobos from "../../../../../public/assets/PlanetImg/Phobos.svg";
+// import deimos from "../../../../../public/assets/PlanetImg/Deimos.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
@@ -149,14 +149,14 @@ const MarsContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <MarsItem src={mars} alt="Mars" clickMars={clickMars} onClick={handleClickMars}/>
+      <MarsItem src="../../../../../public/assets/PlanetImg/Mars.svg" alt="Mars" clickMars={clickMars} onClick={handleClickMars}/>
       <PhobosOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickPhobos}  
       >
-        <PhobosItem src={phobos} alt="phobos" clickPhobos={clickPhobos}/>
+        <PhobosItem src="../../../../../public/assets/PlanetImg/Phobos.svg" alt="phobos" clickPhobos={clickPhobos}/>
       </PhobosOrbit>
       <DeimosOrbit 
         speed={speed} 
@@ -164,7 +164,7 @@ const MarsContent: React.FC<PlanetProps> = (props) => {
         radianCount={radianCount}
         onClick={handleClickDeimos}  
       >
-        <DeimosItem src={deimos} alt="deimos" clickDeimos={clickDeimos}/>
+        <DeimosItem src="../../../../../public/assets/PlanetImg/Deimos.svg" alt="deimos" clickDeimos={clickDeimos}/>
       </DeimosOrbit>
     </>
   )

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TimeCounter from "./TimeCounter"
 import Explain from "./Explain";
 import { ChangeWidthProps } from '../../common/types'
-import returnBtn from "../../../public/assets/ReturnButton.svg"
+// import returnBtn from "../../../public/assets/ReturnButton.svg"
 
 import { useAppSelector, useAppDispatch } from '../../redux/hooks'
 import { RootState, AppDispatch } from '../../redux/store'
@@ -68,7 +68,8 @@ const Footer = () => {
       <Container isChangedWidth={isChangedWidth}>
         <FooterSection isChangedWidth={isChangedWidth}>
           <ReturnButton 
-            src={returnBtn} alt="뒤로 가기" className={isChangedWidth ? 'active' : ''} 
+            src="../../../public/assets/ReturnButton.svg"
+            alt="뒤로 가기" className={isChangedWidth ? 'active' : ''} 
             onClick={handleShorten}
           />
           <TimeCounter />

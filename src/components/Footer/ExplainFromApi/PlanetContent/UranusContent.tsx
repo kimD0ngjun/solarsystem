@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import uranus from "../../../../../public/assets/PlanetImg/Uranus.svg";
-import titania from "../../../../../public/assets/PlanetImg/Titania.svg";
+// import uranus from "../../../../../public/assets/PlanetImg/Uranus.svg";
+// import titania from "../../../../../public/assets/PlanetImg/Titania.svg";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
@@ -94,14 +94,14 @@ const UranusContent: React.FC<PlanetProps> = (props) => {
 
   return (
     <>
-      <UranusItem src={uranus} alt="Uranus" clickUranus={clickUranus} onClick={handleClickUranus}/>
+      <UranusItem src="../../../../../public/assets/PlanetImg/Uranus.svg" alt="Uranus" clickUranus={clickUranus} onClick={handleClickUranus}/>
       <TitaniaOrbit 
         speed={speed} 
         isPaused={isPaused} 
         radianCount={radianCount}
         onClick={handleClickTitania}  
       >
-        <TitaniaItem src={titania} alt="Titania" clickTitania={clickTitania}/>
+        <TitaniaItem src="../../../../../public/assets/PlanetImg/Titania.svg" alt="Titania" clickTitania={clickTitania}/>
       </TitaniaOrbit>
     </>
   )
