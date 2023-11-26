@@ -4,7 +4,10 @@ import styled, { css, keyframes } from "styled-components";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
-import { neptuneClick, tritonClick } from "../../../../redux/contentClick/NeptuneContentSlice";
+import {
+  neptuneClick,
+  tritonClick,
+} from "../../../../redux/contentClick/NeptuneContentSlice";
 
 interface ClickNeptune {
   clickNeptune: boolean;
@@ -20,7 +23,8 @@ const NeptuneItem = styled.img<ClickNeptune>`
   /* border: 1px solid white; */
   border-radius: 50%;
   z-index: 3;
-  box-shadow: ${({ clickNeptune }) => clickNeptune ? '0 0 30rem 0 violet, inset 0 0 5rem 0 violet' : null};
+  box-shadow: ${({ clickNeptune }) =>
+    clickNeptune ? "0 0 30rem 0 violet, inset 0 0 5rem 0 violet" : null};
 
   &:hover {
     cursor: pointer;
@@ -31,22 +35,22 @@ const NeptuneItem = styled.img<ClickNeptune>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet;
   }
-`
+`;
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 15}deg);
+    transform: rotate(${(360 * radianCount) / 15}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 15 - 360}deg);
+    transform: rotate(${(360 * radianCount) / 15 - 360}deg);
   }
 `;
 
 const TritonOrbit = styled.div<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 150rem;
+  height: 150rem;
   border-style: solid;
   border-color: transparent #c6c6c6 transparent transparent;
   border-width: 0.1rem 0.1rem 0;
@@ -64,7 +68,7 @@ const TritonOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const TritonItem = styled.img<ClcikTriton>`
   top: 9.5rem;
@@ -74,37 +78,51 @@ const TritonItem = styled.img<ClcikTriton>`
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  box-shadow: ${({ clickTriton }) => clickTriton ? '0 0 10rem 0 violet, inset 0 0 10rem 0 violet' : null};
-  border: ${({ clickTriton }) => clickTriton ? '1.3px solid violet' : null};
-`
+  box-shadow: ${({ clickTriton }) =>
+    clickTriton ? "0 0 10rem 0 violet, inset 0 0 10rem 0 violet" : null};
+  border: ${({ clickTriton }) => (clickTriton ? "1.3px solid violet" : null)};
+`;
 
 const NeptuneContent: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
   const dispatch: AppDispatch = useAppDispatch();
-  const clickNeptune = useAppSelector((state: RootState) => state.neptuneContent.Neptune);
-  const clickTriton = useAppSelector((state: RootState) => state.neptuneContent.Triton);
+  const clickNeptune = useAppSelector(
+    (state: RootState) => state.neptuneContent.Neptune
+  );
+  const clickTriton = useAppSelector(
+    (state: RootState) => state.neptuneContent.Triton
+  );
 
   const handleClickNeptune = () => {
     dispatch(neptuneClick());
-  }
+  };
 
   const handleClickTriton = () => {
-    dispatch(tritonClick())
-  }
+    dispatch(tritonClick());
+  };
 
   return (
     <>
-      <NeptuneItem src="/assets/PlanetImg/Neptune.svg" alt="Neptune" clickNeptune={clickNeptune} onClick={handleClickNeptune}/>
-      <TritonOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <NeptuneItem
+        src="/assets/PlanetImg/Neptune.svg"
+        alt="Neptune"
+        clickNeptune={clickNeptune}
+        onClick={handleClickNeptune}
+      />
+      <TritonOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickTriton}  
+        onClick={handleClickTriton}
       >
-        <TritonItem src="/assets/PlanetImg/Triton.svg" alt="Triton" clickTriton={clickTriton}/>
+        <TritonItem
+          src="/assets/PlanetImg/Triton.svg"
+          alt="Triton"
+          clickTriton={clickTriton}
+        />
       </TritonOrbit>
     </>
-  )
-}
+  );
+};
 
-export default NeptuneContent
+export default NeptuneContent;

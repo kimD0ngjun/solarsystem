@@ -3,18 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 18}deg);
+    transform: rotate(${(360 * radianCount) / 18}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 18 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 18 + 360}deg);
   }
 `;
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 36.4rem;
-  left: 36.4rem;
+  top: 27rem;
+  left: 27rem;
   width: 26rem;
   height: 26rem;
   border-style: solid;
@@ -29,7 +29,7 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 2.1rem;
     left: 2.1rem;
-    content: '';
+    content: "";
     position: absolute;
     border-color: #e4be9ab6;
     border-radius: 50%;
@@ -37,7 +37,7 @@ const Sphere = styled.li<PlanetProps>`
     height: 3.8rem;
     background: radial-gradient(#c6c6c6, gold, #e4be9a7f, #787777);
   }
-`
+`;
 
 const Io: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -46,7 +46,7 @@ const Io: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Io
+export default Io;

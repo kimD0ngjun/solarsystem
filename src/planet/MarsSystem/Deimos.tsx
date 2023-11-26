@@ -3,19 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 45}deg);
+    transform: rotate(${(360 * radianCount) / 45}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 45 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 45 + 360}deg);
   }
 `;
-
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 20.5rem;
-  left: 20.5rem;
+  top: 13rem;
+  left: 13rem;
   width: 25rem;
   height: 25rem;
   border-style: solid;
@@ -30,14 +29,14 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 2.7rem;
     left: 2.7rem;
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     background-color: #666666;
   }
-`
+`;
 
 const Deimos: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -46,7 +45,7 @@ const Deimos: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Deimos
+export default Deimos;

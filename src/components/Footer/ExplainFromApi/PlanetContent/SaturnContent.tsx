@@ -5,7 +5,11 @@ import styled, { css, keyframes } from "styled-components";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
-import { saturnClick, enceladusClick, titanClick } from "../../../../redux/contentClick/SaturnContentSlice";
+import {
+  saturnClick,
+  enceladusClick,
+  titanClick,
+} from "../../../../redux/contentClick/SaturnContentSlice";
 
 interface ClickSaturn {
   clickSaturn: boolean;
@@ -25,7 +29,8 @@ const SaturnItem = styled.img<ClickSaturn>`
   /* border: 1px solid white; */
   border-radius: 50%;
   z-index: 4;
-  box-shadow: ${({ clickSaturn }) => clickSaturn ? '0 0 30rem 0 violet, inset 0 0 20rem 0 violet' : null};
+  box-shadow: ${({ clickSaturn }) =>
+    clickSaturn ? "0 0 30rem 0 violet, inset 0 0 20rem 0 violet" : null};
 
   &:hover {
     cursor: pointer;
@@ -36,27 +41,28 @@ const SaturnItem = styled.img<ClickSaturn>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet;
   }
-`
+`;
 
 const createEnceladusOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 15}deg);
+    transform: rotate(${(360 * radianCount) / 15}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 15 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 15 + 360}deg);
   }
 `;
 
 const EnceladusOrbit = styled.div<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 160rem;
+  height: 160rem;
   border-style: solid;
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
-    ${createEnceladusOrbitKeyframes(radianCount)} ${1.5 / speed}s linear infinite;
+    ${createEnceladusOrbitKeyframes(radianCount)} ${1.5 /
+    speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 2;
@@ -70,7 +76,7 @@ const EnceladusOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const EnceladusItem = styled.img<ClcikEnceladus>`
   top: 14.5rem;
@@ -80,24 +86,26 @@ const EnceladusItem = styled.img<ClcikEnceladus>`
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  box-shadow: ${({ clickEnceladus }) => clickEnceladus ? '0 0 30rem 0 violet, inset 0 0 30rem 0 violet' : null};
-  border: ${({ clickEnceladus }) => clickEnceladus ? '3px solid violet' : null};
-`
+  box-shadow: ${({ clickEnceladus }) =>
+    clickEnceladus ? "0 0 30rem 0 violet, inset 0 0 30rem 0 violet" : null};
+  border: ${({ clickEnceladus }) =>
+    clickEnceladus ? "3px solid violet" : null};
+`;
 
 const createTitanOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 45}deg);
+    transform: rotate(${(360 * radianCount) / 45}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 45 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 45 + 360}deg);
   }
 `;
 
 const TitanOrbit = styled.div<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  width: 290px;
-  height: 290px;
+  width: 290rem;
+  height: 290rem;
   border-style: solid;
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
@@ -116,7 +124,7 @@ const TitanOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const TitanItem = styled.img<ClcikTitan>`
   top: 28.6rem;
@@ -126,50 +134,70 @@ const TitanItem = styled.img<ClcikTitan>`
   border-radius: 50%;
   position: absolute;
   z-index: 1;
-  box-shadow: ${({ clickTitan }) => clickTitan ? '0 0 30rem 0 violet, inset 0 0 10rem 0 violet' : null};
-  border: ${({ clickTitan }) => clickTitan ? '3px solid violet' : null};
-`
+  box-shadow: ${({ clickTitan }) =>
+    clickTitan ? "0 0 30rem 0 violet, inset 0 0 10rem 0 violet" : null};
+  border: ${({ clickTitan }) => (clickTitan ? "3px solid violet" : null)};
+`;
 
 const SaturnContent: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
   const dispatch: AppDispatch = useAppDispatch();
-  const clickSaturn = useAppSelector((state: RootState) => state.saturnContent.Saturn);
-  const clickEnceladus = useAppSelector((state: RootState) => state.saturnContent.Enceladus);
-  const clickTitan = useAppSelector((state: RootState) => state.saturnContent.Titan);
+  const clickSaturn = useAppSelector(
+    (state: RootState) => state.saturnContent.Saturn
+  );
+  const clickEnceladus = useAppSelector(
+    (state: RootState) => state.saturnContent.Enceladus
+  );
+  const clickTitan = useAppSelector(
+    (state: RootState) => state.saturnContent.Titan
+  );
 
   const handleClickSaturn = () => {
     dispatch(saturnClick());
-  }
+  };
 
   const handleClickEnceladus = () => {
     dispatch(enceladusClick());
-  }
+  };
 
   const handleClickTitan = () => {
     dispatch(titanClick());
-  }
+  };
 
   return (
     <>
-      <SaturnItem src="/assets/PlanetImg/Saturn.svg" alt="Saturn" clickSaturn={clickSaturn} onClick={handleClickSaturn}/>
-      <EnceladusOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <SaturnItem
+        src="/assets/PlanetImg/Saturn.svg"
+        alt="Saturn"
+        clickSaturn={clickSaturn}
+        onClick={handleClickSaturn}
+      />
+      <EnceladusOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickEnceladus}  
+        onClick={handleClickEnceladus}
       >
-        <EnceladusItem src="/assets/PlanetImg/Enceladus.svg" alt="Enceladus" clickEnceladus={clickEnceladus}/>
+        <EnceladusItem
+          src="/assets/PlanetImg/Enceladus.svg"
+          alt="Enceladus"
+          clickEnceladus={clickEnceladus}
+        />
       </EnceladusOrbit>
-      <TitanOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <TitanOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickTitan}  
+        onClick={handleClickTitan}
       >
-        <TitanItem src="/assets/PlanetImg/Titan.svg" alt="Titan" clickTitan={clickTitan}/>
+        <TitanItem
+          src="/assets/PlanetImg/Titan.svg"
+          alt="Titan"
+          clickTitan={clickTitan}
+        />
       </TitanOrbit>
     </>
-  )
-}
+  );
+};
 
-export default SaturnContent
+export default SaturnContent;

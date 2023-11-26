@@ -9,7 +9,7 @@ import { PlanetProps, MainOrbitProps } from "../../common/types";
 import { expandWidth } from "../../redux/ChangeWidthSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { AppDispatch, RootState } from "../../redux/store";
-import { resetPlanets, selectSaturn } from "../../redux/SelectedSlice"
+import { resetPlanets, selectSaturn } from "../../redux/SelectedSlice";
 import { hoverSaturn, leavePlanets } from "../../redux/HoveredSlice";
 import { saturnClick } from "../../redux/contentClick/SaturnContentSlice";
 import { resetSunClick } from "../../redux/contentClick/SunContentSlice";
@@ -23,34 +23,33 @@ import { resetNeptuneClick } from "../../redux/contentClick/NeptuneContentSlice"
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 10759.2}deg);
+    transform: rotate(${(360 * radianCount) / 10759.2}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 10759.2 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 10759.2 + 360}deg);
   }
 `;
 
 const Saturn = styled.ul<MainOrbitProps>`
   list-style: none;
   position: absolute;
-  width: 500rem;
-  height: 500rem;
+  width: 420rem;
+  height: 420rem;
   border-radius: 50%;
   border-style: solid;
-  border-color: transparent transparent transparent white ;
+  border-color: transparent transparent transparent white;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
     ${createOrbitKeyframes(radianCount)} ${1075.92 / speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 4;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 20rem 0 violet, inset 0 0 20rem 0 violet' 
-      : isHovered 
-      ? '0 0 20rem 0 purple, inset 0 0 20rem 0 purple' 
-      : 'none'};
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 20rem 0 violet, inset 0 0 20rem 0 violet"
+      : isHovered
+      ? "0 0 20rem 0 purple, inset 0 0 20rem 0 purple"
+      : "none"};
 
   &:hover {
     cursor: pointer;
@@ -61,50 +60,52 @@ const Saturn = styled.ul<MainOrbitProps>`
   }
 
   &::before {
-    top: 67rem;
-    left: 67rem;
-    content: '';
+    top: 54rem;
+    left: 54rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 14rem;
     height: 13rem;
     background: radial-gradient(#a27131, #ad5c5c, #a27131, #ba8c8c, yellow);
   }
-`
+`;
 
 const SaturnSystem: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
-  const isHovered = useAppSelector((state: RootState) => state.hover.Saturn)
-  const isSelected = useAppSelector((state: RootState) => state.select.Saturn)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Saturn);
+  const isSelected = useAppSelector((state: RootState) => state.select.Saturn);
   const handleHoverEnter = () => {
-    dispatch(hoverSaturn())
-  }
+    dispatch(hoverSaturn());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectSaturn())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetMercuryClick())
-    dispatch(resetVenusClick())
-    dispatch(resetEarthClick())
-    dispatch(resetMarsClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetUranusClick())
-    dispatch(resetNeptuneClick())
-    dispatch(saturnClick())
+    dispatch(resetPlanets());
+    dispatch(selectSaturn());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetMercuryClick());
+    dispatch(resetVenusClick());
+    dispatch(resetEarthClick());
+    dispatch(resetMarsClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetUranusClick());
+    dispatch(resetNeptuneClick());
+    dispatch(saturnClick());
   };
 
   return (
     <Saturn
-      speed={speed} 
-      radianCount={radianCount} 
-      isPaused={isPaused} 
+      speed={speed}
+      radianCount={radianCount}
+      isPaused={isPaused}
       isHovered={isHovered}
       isSelected={isSelected}
       isChanged={isChanged}
@@ -118,7 +119,7 @@ const SaturnSystem: React.FC<PlanetProps> = (props) => {
       <Enceladus speed={speed} radianCount={radianCount} isPaused={isPaused} />
       <Titan speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </Saturn>
-  )
-}
+  );
+};
 
-export default SaturnSystem
+export default SaturnSystem;

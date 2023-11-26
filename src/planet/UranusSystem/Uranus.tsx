@@ -19,34 +19,33 @@ import { resetNeptuneClick } from "../../redux/contentClick/NeptuneContentSlice"
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 30689}deg);
+    transform: rotate(${(360 * radianCount) / 30689}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 30689 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 30689 + 360}deg);
   }
 `;
 
 const Uranus = styled.ul<MainOrbitProps>`
   list-style: none;
   position: absolute;
-  width: 655rem;
-  height: 655rem;
+  width: 530rem;
+  height: 530rem;
   border-radius: 50%;
   border-style: solid;
-  border-color: transparent transparent transparent white ;
+  border-color: transparent transparent transparent white;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
     ${createOrbitKeyframes(radianCount)} ${3068.9 / speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 3;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 20rem 0 violet, inset 0 0 20rem 0 violet' 
-      : isHovered 
-      ? '0 0 20rem 0 purple, inset 0 0 20rem 0 purple' 
-      : 'none'};
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 20rem 0 violet, inset 0 0 20rem 0 violet"
+      : isHovered
+      ? "0 0 20rem 0 purple, inset 0 0 20rem 0 purple"
+      : "none"};
 
   &:hover {
     cursor: pointer;
@@ -57,50 +56,52 @@ const Uranus = styled.ul<MainOrbitProps>`
   }
 
   &::before {
-    top: 90rem;
-    left: 90rem;
-    content: '';
+    top: 72rem;
+    left: 72rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 13rem;
     height: 12rem;
     background: radial-gradient(aqua, white);
   }
-`
+`;
 
 const UranusSystem: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
-  const isHovered = useAppSelector((state: RootState) => state.hover.Uranus)
-  const isSelected = useAppSelector((state: RootState) => state.select.Uranus)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Uranus);
+  const isSelected = useAppSelector((state: RootState) => state.select.Uranus);
   const handleHoverEnter = () => {
-    dispatch(hoverUranus())
-  }
+    dispatch(hoverUranus());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectUranus())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetMercuryClick())
-    dispatch(resetVenusClick())
-    dispatch(resetEarthClick())
-    dispatch(resetMarsClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetSaturnClick())
-    dispatch(resetNeptuneClick())
-    dispatch(uranusClick())
+    dispatch(resetPlanets());
+    dispatch(selectUranus());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetMercuryClick());
+    dispatch(resetVenusClick());
+    dispatch(resetEarthClick());
+    dispatch(resetMarsClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetSaturnClick());
+    dispatch(resetNeptuneClick());
+    dispatch(uranusClick());
   };
 
   return (
     <Uranus
-      speed={speed} 
-      radianCount={radianCount} 
-      isPaused={isPaused} 
+      speed={speed}
+      radianCount={radianCount}
+      isPaused={isPaused}
       isHovered={isHovered}
       isSelected={isSelected}
       isChanged={isChanged}
@@ -110,7 +111,7 @@ const UranusSystem: React.FC<PlanetProps> = (props) => {
     >
       <Titania speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </Uranus>
-  )
-}
+  );
+};
 
-export default UranusSystem
+export default UranusSystem;

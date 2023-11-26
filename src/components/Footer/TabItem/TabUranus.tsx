@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 import { expandWidth } from "../../../redux/ChangeWidthSlice";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -28,13 +28,12 @@ const Tab = styled.li<MainSelectProps>`
   align-items: center;
   justify-content: center;
   z-index: 13;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 10rem 0 violet, inset 0 0 10rem 0 violet' 
-      : isHovered 
-      ? '0 0 10rem 0 purple, inset 0 0 10rem 0 purple' 
-      : 'none'};
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 10rem 0 violet, inset 0 0 10rem 0 violet"
+      : isHovered
+      ? "0 0 10rem 0 purple, inset 0 0 10rem 0 purple"
+      : "none"};
 
   &:hover {
     cursor: pointer;
@@ -43,43 +42,45 @@ const Tab = styled.li<MainSelectProps>`
   &:active {
     cursor: grab;
   }
-`
+`;
 
 const TabText = styled.p<FontSize>`
   width: 100%;
-  font-size: ${({ isSelected }) => isSelected ? `18px` : `12.45px` };
+  font-size: ${({ isSelected }) => (isSelected ? `18px` : `12.45px`)};
   transition: font-size 350ms ease-in-out;
   text-align: center;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-`
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
 const TabUranus = () => {
-  const isHovered = useAppSelector((state: RootState) => state.hover.Uranus)
-  const isSelected = useAppSelector((state: RootState) => state.select.Uranus)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Uranus);
+  const isSelected = useAppSelector((state: RootState) => state.select.Uranus);
   const handleHoverEnter = () => {
-    dispatch(hoverUranus())
-  }
+    dispatch(hoverUranus());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectUranus())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetMercuryClick())
-    dispatch(resetVenusClick())
-    dispatch(resetEarthClick())
-    dispatch(resetMarsClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetSaturnClick())
-    dispatch(resetNeptuneClick())
-    dispatch(uranusClick())
+    dispatch(resetPlanets());
+    dispatch(selectUranus());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetMercuryClick());
+    dispatch(resetVenusClick());
+    dispatch(resetEarthClick());
+    dispatch(resetMarsClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetSaturnClick());
+    dispatch(resetNeptuneClick());
+    dispatch(uranusClick());
   };
 
   return (
@@ -91,13 +92,9 @@ const TabUranus = () => {
       onMouseLeave={handleHoverLeave}
       onClick={handleExpand}
     >
-      <TabText
-        isSelected={isSelected}
-      >
-        천왕성
-      </TabText>
+      <TabText isSelected={isSelected}>{isSelected ? "천왕성" : "천"}</TabText>
     </Tab>
-  )
-}
+  );
+};
 
-export default TabUranus
+export default TabUranus;

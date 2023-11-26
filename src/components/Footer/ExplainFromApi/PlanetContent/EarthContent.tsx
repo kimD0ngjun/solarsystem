@@ -4,7 +4,10 @@ import styled, { css, keyframes } from "styled-components";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
-import { earthClick, moonClick } from "../../../../redux/contentClick/EarthContentSlice";
+import {
+  earthClick,
+  moonClick,
+} from "../../../../redux/contentClick/EarthContentSlice";
 
 interface ClickEarth {
   clickEarth: boolean;
@@ -20,7 +23,8 @@ const EarthItem = styled.img<ClickEarth>`
   /* border: 1px solid white; */
   border-radius: 50%;
   z-index: 3;
-  box-shadow: ${({ clickEarth }) => clickEarth ? '0 0 20rem 0 violet, inset 0 0 5rem 0 violet' : null};
+  box-shadow: ${({ clickEarth }) =>
+    clickEarth ? "0 0 20rem 0 violet, inset 0 0 5rem 0 violet" : null};
 
   &:hover {
     cursor: pointer;
@@ -31,22 +35,22 @@ const EarthItem = styled.img<ClickEarth>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet;
   }
-`
+`;
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 27}deg);
+    transform: rotate(${(360 * radianCount) / 27}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 27 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 27 + 360}deg);
   }
 `;
 
 const MoonOrbit = styled.div<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 150rem;
+  height: 150rem;
   border-style: solid;
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
@@ -64,7 +68,7 @@ const MoonOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const MoonItem = styled.img<ClcikMoon>`
   top: 9.5rem;
@@ -74,36 +78,50 @@ const MoonItem = styled.img<ClcikMoon>`
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  box-shadow: ${({ clickMoon }) => clickMoon ? '0 0 10rem 0 violet, inset 0 0 10rem 0 violet' : null};
-`
+  box-shadow: ${({ clickMoon }) =>
+    clickMoon ? "0 0 10rem 0 violet, inset 0 0 10rem 0 violet" : null};
+`;
 
 const EarthContent: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
   const dispatch: AppDispatch = useAppDispatch();
-  const clickEarth = useAppSelector((state: RootState) => state.earthContent.Earth);
-  const clickMoon = useAppSelector((state: RootState) => state.earthContent.Moon);
+  const clickEarth = useAppSelector(
+    (state: RootState) => state.earthContent.Earth
+  );
+  const clickMoon = useAppSelector(
+    (state: RootState) => state.earthContent.Moon
+  );
 
   const handleClickEarth = () => {
     dispatch(earthClick());
-  }
+  };
 
   const handleClickMoon = () => {
-    dispatch(moonClick())
-  }
+    dispatch(moonClick());
+  };
 
   return (
     <>
-      <EarthItem src="/assets/PlanetImg/Earth.svg" alt="Earth" clickEarth={clickEarth} onClick={handleClickEarth}/>
-      <MoonOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <EarthItem
+        src="/assets/PlanetImg/Earth.svg"
+        alt="Earth"
+        clickEarth={clickEarth}
+        onClick={handleClickEarth}
+      />
+      <MoonOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickMoon}  
+        onClick={handleClickMoon}
       >
-        <MoonItem src="/assets/PlanetImg/Moon.svg" alt="moon" clickMoon={clickMoon}/>
+        <MoonItem
+          src="/assets/PlanetImg/Moon.svg"
+          alt="moon"
+          clickMoon={clickMoon}
+        />
       </MoonOrbit>
     </>
-  )
-}
+  );
+};
 
-export default EarthContent
+export default EarthContent;

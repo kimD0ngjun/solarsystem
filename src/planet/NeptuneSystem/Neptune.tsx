@@ -19,34 +19,33 @@ import { resetUranusClick } from "../../redux/contentClick/UranusContentSlice";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 60182}deg);
+    transform: rotate(${(360 * radianCount) / 60182}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 60182 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 60182 + 360}deg);
   }
 `;
 
 const Neptune = styled.ul<MainOrbitProps>`
   list-style: none;
   position: absolute;
-  width: 825rem;
-  height: 825rem;
+  width: 640rem;
+  height: 640rem;
   border-radius: 50%;
   border-style: solid;
-  border-color: transparent transparent transparent white ;
+  border-color: transparent transparent transparent white;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
     ${createOrbitKeyframes(radianCount)} ${6018.2 / speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 2;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 20rem 0 violet, inset 0 0 20rem 0 violet' 
-      : isHovered 
-      ? '0 0 20rem 0 purple, inset 0 0 20rem 0 purple' 
-      : 'none'};
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 20rem 0 violet, inset 0 0 20rem 0 violet"
+      : isHovered
+      ? "0 0 20rem 0 purple, inset 0 0 20rem 0 purple"
+      : "none"};
 
   &:hover {
     cursor: pointer;
@@ -57,51 +56,53 @@ const Neptune = styled.ul<MainOrbitProps>`
   }
 
   &::before {
-    top: 115rem;
-    left: 115rem;
-    content: '';
+    top: 88rem;
+    left: 88rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 11rem;
     height: 11rem;
     background: radial-gradient(blue, #3131ec);
   }
-`
+`;
 
 const NeptuneSystem: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
-  const isHovered = useAppSelector((state: RootState) => state.hover.Neptune)
-  const isSelected = useAppSelector((state: RootState) => state.select.Neptune)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Neptune);
+  const isSelected = useAppSelector((state: RootState) => state.select.Neptune);
   const handleHoverEnter = () => {
-    dispatch(hoverNeptune())
-  }
+    dispatch(hoverNeptune());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectNeptune())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetMercuryClick())
-    dispatch(resetVenusClick())
-    dispatch(resetEarthClick())
-    dispatch(resetMarsClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetSaturnClick())
-    dispatch(resetUranusClick())
-    dispatch(neptuneClick())
+    dispatch(resetPlanets());
+    dispatch(selectNeptune());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetMercuryClick());
+    dispatch(resetVenusClick());
+    dispatch(resetEarthClick());
+    dispatch(resetMarsClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetSaturnClick());
+    dispatch(resetUranusClick());
+    dispatch(neptuneClick());
   };
 
   return (
     <>
       <Neptune
-        speed={speed} 
-        radianCount={radianCount} 
-        isPaused={isPaused} 
+        speed={speed}
+        radianCount={radianCount}
+        isPaused={isPaused}
         isHovered={isHovered}
         isSelected={isSelected}
         isChanged={isChanged}
@@ -112,7 +113,7 @@ const NeptuneSystem: React.FC<PlanetProps> = (props) => {
         <Triton speed={speed} radianCount={radianCount} isPaused={isPaused} />
       </Neptune>
     </>
-  )
-}
+  );
+};
 
 export default NeptuneSystem;

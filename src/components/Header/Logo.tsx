@@ -39,14 +39,14 @@ const LogoBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const LogoImg = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 288px;
-  margin: 6px;
+  width: 280rem;
+  margin-left: 20rem;
   transition: transform 0.3s ease;
 
   &:hover {
@@ -56,34 +56,37 @@ const LogoImg = styled.img`
 
   &:active {
     cursor: grab;
-    transform: scale(1.0);
+    transform: scale(1);
   }
 
   @media (max-width: 1200px) {
-    width: 144px;
+    width: 144rem;
   }
-`
+`;
 
 const Text = styled.p`
-  font-size: 15px;
-  margin: 3px;
+  font-size: 15rem;
+  margin: 3rem;
   animation: ${pulse} 4s 4s 1.5;
-`
+
+  @media (max-width: 1200px) {
+    font-size: 9rem;
+  }
+`;
 
 const Logo = () => {
   const dispatch: AppDispatch = useAppDispatch();
 
   const handleToggle = () => {
-    dispatch(setToggle())
-  }
+    dispatch(setToggle());
+  };
 
   return (
     <LogoBox>
       <LogoImg src="/assets/Logo.svg" alt="logo" onClick={handleToggle} />
       <Text>click the logo ◡̈</Text>
     </LogoBox>
-  )
-}
+  );
+};
 
-export default Logo
-
+export default Logo;

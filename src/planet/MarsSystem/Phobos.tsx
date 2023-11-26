@@ -3,18 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 15}deg);
+    transform: rotate(${(360 * radianCount) / 15}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 15 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 15 + 360}deg);
   }
 `;
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 26rem;
-  left: 26rem;
+  top: 18rem;
+  left: 18rem;
   width: 14rem;
   height: 14rem;
   border-style: solid;
@@ -29,14 +29,14 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 1rem;
     left: 1rem;
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     background: radial-gradient(#3d2222, #4b3a3a);
   }
-`
+`;
 
 const Phobos: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -45,7 +45,7 @@ const Phobos: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Phobos
+export default Phobos;

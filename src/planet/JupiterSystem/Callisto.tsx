@@ -3,18 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 167}deg);
+    transform: rotate(${(360 * radianCount) / 167}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 167 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 167 + 360}deg);
   }
 `;
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 15rem;
-  left: 15rem;
+  top: 3.5rem;
+  left: 3.5rem;
   width: 70rem;
   height: 70rem;
   border-style: solid;
@@ -29,14 +29,14 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 8rem;
     left: 8rem;
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
     background: radial-gradient(gray, #3e3e3e);
   }
-`
+`;
 
 const Callisto: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -45,7 +45,7 @@ const Callisto: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Callisto
+export default Callisto;
