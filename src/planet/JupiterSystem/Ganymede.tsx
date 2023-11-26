@@ -3,18 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 71.5}deg);
+    transform: rotate(${(360 * radianCount) / 71.5}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 71.5 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 71.5 + 360}deg);
   }
 `;
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 22rem;
-  left: 22rem;
+  top: 10rem;
+  left: 10rem;
   width: 56rem;
   height: 56rem;
   border-style: solid;
@@ -29,14 +29,14 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 6rem;
     left: 6rem;
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
     background: radial-gradient(gray, #a52a2a5e);
   }
-`
+`;
 
 const Ganymede: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -45,7 +45,7 @@ const Ganymede: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Ganymede
+export default Ganymede;
