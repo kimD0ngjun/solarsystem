@@ -18,34 +18,33 @@ import { resetNeptuneClick } from "../redux/contentClick/NeptuneContentSlice";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 225}deg);
+    transform: rotate(${(360 * radianCount) / 225}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 225 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 225 + 360}deg);
   }
 `;
 
 const Sphere = styled.div<MainOrbitProps>`
   position: absolute;
-  width: 97rem;
-  height: 97rem;
+  width: 77rem;
+  height: 77rem;
   border-radius: 50%;
   border-style: solid;
-  border-color: transparent transparent transparent white ;
+  border-color: transparent transparent transparent white;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
     ${createOrbitKeyframes(radianCount)} ${22.5 / speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 8;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 20rem 0 violet, inset 0 0 20rem 0 violet' 
-      : isHovered 
-      ? '0 0 20rem 0 purple, inset 0 0 20rem 0 purple' 
-      : 'none'};
-  
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 20rem 0 violet, inset 0 0 20rem 0 violet"
+      : isHovered
+      ? "0 0 20rem 0 purple, inset 0 0 20rem 0 purple"
+      : "none"};
+
   &:hover {
     cursor: pointer;
   }
@@ -55,51 +54,53 @@ const Sphere = styled.div<MainOrbitProps>`
   }
 
   &::before {
-    top: 10.2rem;
-    left: 10.2rem;
-    content: '';
+    top: 8.2rem;
+    left: 8.2rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 8rem;
     height: 8rem;
     background: radial-gradient(yellow, #6f3232be);
   }
-`
+`;
 
 const Venus: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
-  const isHovered = useAppSelector((state: RootState) => state.hover.Venus)
-  const isSelected = useAppSelector((state: RootState) => state.select.Venus)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Venus);
+  const isSelected = useAppSelector((state: RootState) => state.select.Venus);
   const handleHoverEnter = () => {
-    dispatch(hoverVenus())
-  }
+    dispatch(hoverVenus());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectVenus())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetMercuryClick())
-    dispatch(resetEarthClick())
-    dispatch(resetMarsClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetSaturnClick())
-    dispatch(resetUranusClick())
-    dispatch(resetNeptuneClick())
-    dispatch(venusClick())
+    dispatch(resetPlanets());
+    dispatch(selectVenus());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetMercuryClick());
+    dispatch(resetEarthClick());
+    dispatch(resetMarsClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetSaturnClick());
+    dispatch(resetUranusClick());
+    dispatch(resetNeptuneClick());
+    dispatch(venusClick());
   };
 
   return (
     <>
       <Sphere
-        speed={speed} 
-        radianCount={radianCount} 
-        isPaused={isPaused} 
+        speed={speed}
+        radianCount={radianCount}
+        isPaused={isPaused}
         isHovered={isHovered}
         isSelected={isSelected}
         isChanged={isChanged}
@@ -108,7 +109,7 @@ const Venus: React.FC<PlanetProps> = (props) => {
         onClick={handleExpand}
       />
     </>
-  )
-}
+  );
+};
 
-export default Venus
+export default Venus;

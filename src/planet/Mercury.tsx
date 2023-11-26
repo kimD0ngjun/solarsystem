@@ -16,36 +16,34 @@ import { resetSaturnClick } from "../redux/contentClick/SaturnContentSlice";
 import { resetUranusClick } from "../redux/contentClick/UranusContentSlice";
 import { resetNeptuneClick } from "../redux/contentClick/NeptuneContentSlice";
 
-
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 88}deg);
+    transform: rotate(${(360 * radianCount) / 88}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 88 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 88 + 360}deg);
   }
 `;
 
 const Sphere = styled.div<MainOrbitProps>`
   position: absolute;
-  width: 51rem;
-  height: 51rem;
+  width: 43rem;
+  height: 43rem;
   border-radius: 50%;
   border-style: solid;
-  border-color: transparent transparent transparent white ;
+  border-color: transparent transparent transparent white;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
     ${createOrbitKeyframes(radianCount)} ${8.8 / speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 9;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 20rem 0 violet, inset 0 0 20rem 0 violet' 
-      : isHovered 
-      ? '0 0 20rem 0 purple, inset 0 0 20rem 0 purple' 
-      : 'none'};
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 20rem 0 violet, inset 0 0 20rem 0 violet"
+      : isHovered
+      ? "0 0 20rem 0 purple, inset 0 0 20rem 0 purple"
+      : "none"};
 
   &:hover {
     cursor: pointer;
@@ -56,51 +54,53 @@ const Sphere = styled.div<MainOrbitProps>`
   }
 
   &::before {
-    top: 5.2rem;
-    left: 5.2rem;
-    content: '';
+    top: 3.7rem;
+    left: 3.7rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
     background: radial-gradient(gray, #585858);
   }
-`
+`;
 
 const Mercury: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
-  const isHovered = useAppSelector((state: RootState) => state.hover.Mercury)
-  const isSelected = useAppSelector((state: RootState) => state.select.Mercury)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Mercury);
+  const isSelected = useAppSelector((state: RootState) => state.select.Mercury);
   const handleHoverEnter = () => {
-    dispatch(hoverMercury())
-  }
+    dispatch(hoverMercury());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectMercury())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetVenusClick())
-    dispatch(resetEarthClick())
-    dispatch(resetMarsClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetSaturnClick())
-    dispatch(resetUranusClick())
-    dispatch(resetNeptuneClick())
-    dispatch(mercuryClick())
+    dispatch(resetPlanets());
+    dispatch(selectMercury());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetVenusClick());
+    dispatch(resetEarthClick());
+    dispatch(resetMarsClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetSaturnClick());
+    dispatch(resetUranusClick());
+    dispatch(resetNeptuneClick());
+    dispatch(mercuryClick());
   };
 
   return (
     <>
       <Sphere
-        speed={speed} 
-        radianCount={radianCount} 
-        isPaused={isPaused} 
+        speed={speed}
+        radianCount={radianCount}
+        isPaused={isPaused}
         isHovered={isHovered}
         isSelected={isSelected}
         isChanged={isChanged}
@@ -109,7 +109,7 @@ const Mercury: React.FC<PlanetProps> = (props) => {
         onClick={handleExpand}
       />
     </>
-  )
-}
+  );
+};
 
-export default Mercury
+export default Mercury;
