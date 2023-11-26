@@ -3,18 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 15}deg);
+    transform: rotate(${(360 * radianCount) / 15}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 15 - 360}deg);
+    transform: rotate(${(360 * radianCount) / 15 - 360}deg);
   }
 `;
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 102rem;
-  left: 102rem;
+  top: 76.7rem;
+  left: 76.7rem;
   width: 36rem;
   height: 36rem;
   border-style: solid;
@@ -29,14 +29,14 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 3.7rem;
     right: 4.7rem;
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 2.4rem;
     height: 2.4rem;
     background: radial-gradient(#eae697b7, #a6a6a6);
   }
-`
+`;
 
 const Triton: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -45,7 +45,7 @@ const Triton: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Triton
+export default Triton;
