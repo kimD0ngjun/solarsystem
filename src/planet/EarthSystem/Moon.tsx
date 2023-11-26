@@ -3,10 +3,10 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 27}deg);
+    transform: rotate(${(360 * radianCount) / 27}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 27 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 27 + 360}deg);
   }
 `;
 
@@ -15,10 +15,10 @@ const createOrbitKeyframes = (radianCount: number) => keyframes`
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 6.2rem;
-  left: 6.2rem;
-  width: 35rem;
-  height: 35rem;
+  top: 4.1rem;
+  left: 4.1rem;
+  width: 25rem;
+  height: 25rem;
   border-style: solid;
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
@@ -29,16 +29,16 @@ const Sphere = styled.li<PlanetProps>`
   z-index: 7;
 
   &::before {
-    top: 2.9rem;
-    left: 2.9rem;
-    content: '';
+    top: 2.1rem;
+    left: 2.1rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 3.8rem;
     height: 3.8rem;
     background: radial-gradient(gray, white);
   }
-`
+`;
 
 const Moon: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -47,7 +47,7 @@ const Moon: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Moon
+export default Moon;

@@ -20,34 +20,33 @@ import { resetNeptuneClick } from "../../redux/contentClick/NeptuneContentSlice"
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 687}deg);
+    transform: rotate(${(360 * radianCount) / 687}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 687 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 687 + 360}deg);
   }
 `;
 
 const Mars = styled.ul<MainOrbitProps>`
   list-style: none;
   position: absolute;
-  width: 225rem;
-  height: 225rem;
+  width: 175rem;
+  height: 175rem;
   border-radius: 50%;
   border-style: solid;
-  border-color: transparent transparent transparent white ;
+  border-color: transparent transparent transparent white;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
     ${createOrbitKeyframes(radianCount)} ${68.7 / speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 6;
-  box-shadow: 
-  ${({ isSelected, isChanged, isHovered }) => 
-    isSelected && isChanged 
-      ? '0 0 20rem 0 violet, inset 0 0 20rem 0 violet' 
-      : isHovered 
-      ? '0 0 20rem 0 purple, inset 0 0 20rem 0 purple' 
-      : 'none'};
+  box-shadow: ${({ isSelected, isChanged, isHovered }) =>
+    isSelected && isChanged
+      ? "0 0 20rem 0 violet, inset 0 0 20rem 0 violet"
+      : isHovered
+      ? "0 0 20rem 0 purple, inset 0 0 20rem 0 purple"
+      : "none"};
 
   &:hover {
     cursor: pointer;
@@ -58,50 +57,52 @@ const Mars = styled.ul<MainOrbitProps>`
   }
 
   &::before {
-    top: 29rem;
-    left: 29rem;
-    content: '';
+    top: 21rem;
+    left: 21rem;
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 8rem;
     height: 8rem;
     background: radial-gradient(#bd3232, #904040, #450000);
   }
-`
+`;
 
 const MarsSystem: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
-  const isHovered = useAppSelector((state: RootState) => state.hover.Mars)
-  const isSelected = useAppSelector((state: RootState) => state.select.Mars)
+  const isHovered = useAppSelector((state: RootState) => state.hover.Mars);
+  const isSelected = useAppSelector((state: RootState) => state.select.Mars);
   const handleHoverEnter = () => {
-    dispatch(hoverMars())
-  }
+    dispatch(hoverMars());
+  };
   const handleHoverLeave = () => {
-    dispatch(leavePlanets())
-  }
+    dispatch(leavePlanets());
+  };
 
   const dispatch: AppDispatch = useAppDispatch();
-  const isChanged = useAppSelector((state: RootState) => state.changeWidth.isChanged)
+  const isChanged = useAppSelector(
+    (state: RootState) => state.changeWidth.isChanged
+  );
   const handleExpand = () => {
-    dispatch(resetPlanets())
-    dispatch(selectMars())
-    dispatch(expandWidth())
-    dispatch(resetSunClick())
-    dispatch(resetMercuryClick())
-    dispatch(resetVenusClick())
-    dispatch(resetEarthClick())
-    dispatch(resetJupiterClick())
-    dispatch(resetSaturnClick())
-    dispatch(resetUranusClick())
-    dispatch(resetNeptuneClick())
-    dispatch(marsClick())
+    dispatch(resetPlanets());
+    dispatch(selectMars());
+    dispatch(expandWidth());
+    dispatch(resetSunClick());
+    dispatch(resetMercuryClick());
+    dispatch(resetVenusClick());
+    dispatch(resetEarthClick());
+    dispatch(resetJupiterClick());
+    dispatch(resetSaturnClick());
+    dispatch(resetUranusClick());
+    dispatch(resetNeptuneClick());
+    dispatch(marsClick());
   };
 
   return (
-    <Mars 
-      speed={speed} 
-      radianCount={radianCount} 
-      isPaused={isPaused} 
+    <Mars
+      speed={speed}
+      radianCount={radianCount}
+      isPaused={isPaused}
       isHovered={isHovered}
       isSelected={isSelected}
       isChanged={isChanged}
@@ -112,7 +113,7 @@ const MarsSystem: React.FC<PlanetProps> = (props) => {
       <Deimos speed={speed} radianCount={radianCount} isPaused={isPaused} />
       <Phobos speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </Mars>
-  )
-}
+  );
+};
 
-export default MarsSystem
+export default MarsSystem;
