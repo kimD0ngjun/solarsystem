@@ -7,12 +7,12 @@ import styled, { css, keyframes } from "styled-components";
 import { PlanetProps } from "../../../../common/types";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { AppDispatch, RootState } from "../../../../redux/store";
-import { 
+import {
   jupiterClick,
-  ioClick, 
-  europaClick, 
-  ganymadeClick, 
-  callistoClick 
+  ioClick,
+  europaClick,
+  ganymadeClick,
+  callistoClick,
 } from "../../../../redux/contentClick/JupiterContentSlice";
 
 interface ClickJupiter {
@@ -41,7 +41,8 @@ const JupiterItem = styled.img<ClickJupiter>`
   /* border: 1px solid white; */
   border-radius: 50%;
   z-index: 5;
-  box-shadow: ${({ clickJupiter }) => clickJupiter ? '0 0 30rem 0 violet, inset 0 0 20rem 0 violet' : null};
+  box-shadow: ${({ clickJupiter }) =>
+    clickJupiter ? "0 0 30rem 0 violet, inset 0 0 20rem 0 violet" : null};
 
   &:hover {
     cursor: pointer;
@@ -52,24 +53,24 @@ const JupiterItem = styled.img<ClickJupiter>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet;
   }
-`
+`;
 
 // 이오
 
 const createIoOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 18}deg);
+    transform: rotate(${(360 * radianCount) / 18}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 18 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 18 + 360}deg);
   }
 `;
 
 const IoOrbit = styled.div<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  width: 115px;
-  height: 115px;
+  width: 115rem;
+  height: 115rem;
   border-style: solid;
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
@@ -88,7 +89,7 @@ const IoOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const IoItem = styled.img<ClcikIo>`
   top: 8rem;
@@ -98,18 +99,18 @@ const IoItem = styled.img<ClcikIo>`
   border-radius: 50%;
   position: absolute;
   z-index: 4;
-  box-shadow: ${({ clickIo }) => clickIo ? '0 0 30rem 0 violet' : null};
-  border: ${({ clickIo }) => clickIo ? '1.5px solid violet' : null};
-`
+  box-shadow: ${({ clickIo }) => (clickIo ? "0 0 30rem 0 violet" : null)};
+  border: ${({ clickIo }) => (clickIo ? "1.5px solid violet" : null)};
+`;
 
 // 유로파
 
 const createEuropaOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 35.5}deg);
+    transform: rotate(${(360 * radianCount) / 35.5}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 35.5 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 35.5 + 360}deg);
   }
 `;
 
@@ -136,7 +137,7 @@ const EuropaOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const EuropaItem = styled.img<ClcikEuropa>`
   top: 12.5rem;
@@ -146,18 +147,19 @@ const EuropaItem = styled.img<ClcikEuropa>`
   border-radius: 50%;
   position: absolute;
   z-index: 3;
-  box-shadow: ${({ clickEuropa }) => clickEuropa ? '0 0 30rem 0 violet, inset 0 0 10rem 0 violet' : null};
-  border: ${({ clickEuropa }) => clickEuropa ? '1.5px solid violet' : null};
-`
+  box-shadow: ${({ clickEuropa }) =>
+    clickEuropa ? "0 0 30rem 0 violet, inset 0 0 10rem 0 violet" : null};
+  border: ${({ clickEuropa }) => (clickEuropa ? "1.5px solid violet" : null)};
+`;
 
 // 가니메데
 
 const createGanymedeOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 71.5}deg);
+    transform: rotate(${(360 * radianCount) / 71.5}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 71.5 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 71.5 + 360}deg);
   }
 `;
 
@@ -170,7 +172,8 @@ const GanymedeOrbit = styled.div<PlanetProps>`
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
-    ${createGanymedeOrbitKeyframes(radianCount)} ${7.15 / speed}s linear infinite;
+    ${createGanymedeOrbitKeyframes(radianCount)} ${7.15 /
+    speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 2;
@@ -184,7 +187,7 @@ const GanymedeOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const GanymedeItem = styled.img<ClcikGanymede>`
   top: 25.5rem;
@@ -194,18 +197,20 @@ const GanymedeItem = styled.img<ClcikGanymede>`
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  box-shadow: ${({ clickGanymede }) => clickGanymede ? '0 0 30rem 0 violet, inset 0 0 10rem 0 violet' : null};
-  border: ${({ clickGanymede }) => clickGanymede ? '1.5px solid violet' : null};
-`
+  box-shadow: ${({ clickGanymede }) =>
+    clickGanymede ? "0 0 30rem 0 violet, inset 0 0 10rem 0 violet" : null};
+  border: ${({ clickGanymede }) =>
+    clickGanymede ? "1.5px solid violet" : null};
+`;
 
-// 칼리스토 
+// 칼리스토
 
 const createCallistoOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 167}deg);
+    transform: rotate(${(360 * radianCount) / 167}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 167 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 167 + 360}deg);
   }
 `;
 
@@ -218,7 +223,8 @@ const CallistoOrbit = styled.div<PlanetProps>`
   border-color: transparent transparent transparent #c6c6c6;
   border-width: 0.1rem 0.1rem 0;
   animation: ${({ speed, radianCount, isPaused }) => css`
-    ${createCallistoOrbitKeyframes(radianCount)} ${16.7 / speed}s linear infinite;
+    ${createCallistoOrbitKeyframes(radianCount)} ${16.7 /
+    speed}s linear infinite;
     animation-play-state: ${isPaused ? "paused" : "running"};
   `};
   z-index: 1;
@@ -232,7 +238,7 @@ const CallistoOrbit = styled.div<PlanetProps>`
     cursor: grab;
     box-shadow: 0 0 20rem 0 violet, inset 0 0 20rem 0 violet;
   }
-`
+`;
 
 const CallistoItem = styled.img<ClcikCallisto>`
   top: 31.5rem;
@@ -242,76 +248,103 @@ const CallistoItem = styled.img<ClcikCallisto>`
   border-radius: 50%;
   position: absolute;
   z-index: 1;
-  box-shadow: ${({ clickCallisto }) => clickCallisto ? '0 0 30rem 0 violet, inset 0 0 10rem 0 violet' : null};
-  border: ${({ clickCallisto }) => clickCallisto ? '1.5px solid violet' : null};
-`
+  box-shadow: ${({ clickCallisto }) =>
+    clickCallisto ? "0 0 30rem 0 violet, inset 0 0 10rem 0 violet" : null};
+  border: ${({ clickCallisto }) =>
+    clickCallisto ? "1.5px solid violet" : null};
+`;
 
 const JupiterContent: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
   const dispatch: AppDispatch = useAppDispatch();
-  const clickJupiter = useAppSelector((state: RootState) => state.jupiterContent.Jupiter);
+  const clickJupiter = useAppSelector(
+    (state: RootState) => state.jupiterContent.Jupiter
+  );
   const clickIo = useAppSelector((state: RootState) => state.jupiterContent.Io);
-  const clickEuropa = useAppSelector((state: RootState) => state.jupiterContent.Europa);
-  const clickGanymede = useAppSelector((state: RootState) => state.jupiterContent.Ganymede);
-  const clickCallisto = useAppSelector((state: RootState) => state.jupiterContent.Callisto);
+  const clickEuropa = useAppSelector(
+    (state: RootState) => state.jupiterContent.Europa
+  );
+  const clickGanymede = useAppSelector(
+    (state: RootState) => state.jupiterContent.Ganymede
+  );
+  const clickCallisto = useAppSelector(
+    (state: RootState) => state.jupiterContent.Callisto
+  );
 
   const handleClickJupiter = () => {
     dispatch(jupiterClick());
-  }
+  };
 
   const handleClickIo = () => {
     dispatch(ioClick());
-  }
+  };
 
   const handleClickEuropa = () => {
     dispatch(europaClick());
-  }
+  };
 
   const handleClickGanymede = () => {
     dispatch(ganymadeClick());
-  }
+  };
 
   const handleClickCallisto = () => {
     dispatch(callistoClick());
-  }
+  };
 
   return (
     <>
-      <JupiterItem src="/assets/PlanetImg/Jupiter.svg" alt="Jupiter" clickJupiter={clickJupiter} onClick={handleClickJupiter}/>
-      <IoOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <JupiterItem
+        src="/assets/PlanetImg/Jupiter.svg"
+        alt="Jupiter"
+        clickJupiter={clickJupiter}
+        onClick={handleClickJupiter}
+      />
+      <IoOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickIo}  
+        onClick={handleClickIo}
       >
-        <IoItem src="/assets/PlanetImg/Io.svg" alt="Io" clickIo={clickIo}/>
+        <IoItem src="/assets/PlanetImg/Io.svg" alt="Io" clickIo={clickIo} />
       </IoOrbit>
-      <EuropaOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <EuropaOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickEuropa}  
+        onClick={handleClickEuropa}
       >
-        <EuropaItem src="/assets/PlanetImg/Europa.svg" alt="europa" clickEuropa={clickEuropa}/>
+        <EuropaItem
+          src="/assets/PlanetImg/Europa.svg"
+          alt="europa"
+          clickEuropa={clickEuropa}
+        />
       </EuropaOrbit>
-      <GanymedeOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <GanymedeOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickGanymede}  
+        onClick={handleClickGanymede}
       >
-        <GanymedeItem src="/assets/PlanetImg/Ganymede.svg" alt="ganymede" clickGanymede={clickGanymede}/>
+        <GanymedeItem
+          src="/assets/PlanetImg/Ganymede.svg"
+          alt="ganymede"
+          clickGanymede={clickGanymede}
+        />
       </GanymedeOrbit>
-      <CallistoOrbit 
-        speed={speed} 
-        isPaused={isPaused} 
+      <CallistoOrbit
+        speed={speed}
+        isPaused={isPaused}
         radianCount={radianCount}
-        onClick={handleClickCallisto}  
+        onClick={handleClickCallisto}
       >
-        <CallistoItem src="/assets/PlanetImg/Callisto.svg" alt="callisto" clickCallisto={clickCallisto}/>
+        <CallistoItem
+          src="/assets/PlanetImg/Callisto.svg"
+          alt="callisto"
+          clickCallisto={clickCallisto}
+        />
       </CallistoOrbit>
     </>
-  )
-}
+  );
+};
 
-export default JupiterContent
+export default JupiterContent;
