@@ -3,18 +3,18 @@ import { PlanetProps } from "../../common/types";
 
 const createOrbitKeyframes = (radianCount: number) => keyframes`
   from {
-    transform: rotate(${360 * radianCount / 15}deg);
+    transform: rotate(${(360 * radianCount) / 15}deg);
   }
   to {
-    transform: rotate(${360 * radianCount / 15 + 360}deg);
+    transform: rotate(${(360 * radianCount) / 15 + 360}deg);
   }
 `;
 
 const Sphere = styled.li<PlanetProps>`
   border-radius: 50%;
   position: absolute;
-  top: 52.5rem;
-  left: 52.3rem;
+  top: 40.5rem;
+  left: 40.3rem;
   width: 42rem;
   height: 42rem;
   border-style: solid;
@@ -29,14 +29,14 @@ const Sphere = styled.li<PlanetProps>`
   &::before {
     top: 4.7rem;
     left: 4.7rem;
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     width: 2.4rem;
     height: 2.4rem;
     background: radial-gradient(#5bc7f8b7, #a6a6a6);
   }
-`
+`;
 
 const Enceladus: React.FC<PlanetProps> = (props) => {
   const { speed, radianCount, isPaused } = props;
@@ -45,7 +45,7 @@ const Enceladus: React.FC<PlanetProps> = (props) => {
     <>
       <Sphere speed={speed} radianCount={radianCount} isPaused={isPaused} />
     </>
-  )
-}
+  );
+};
 
-export default Enceladus
+export default Enceladus;
