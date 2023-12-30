@@ -1,7 +1,7 @@
 <br />
 
 <div  align="center">
-  <img width="100%" src="https://github.com/kimD0ngjun/solarsystem/blob/main/public/assets/Logo.svg" alt="stackoverflow">
+  <img width="100%" src="https://github.com/kimD0ngjun/solarsystem/blob/main/public/assets/BackgroundLogo.svg" alt="solarSystem">
 </div>
 
 <br />
