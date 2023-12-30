@@ -40,6 +40,20 @@ const IntroduceLi = styled.li`
   }
 `;
 
+const LinkToWiki = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 13.7rem;
+
+  &:active {
+    cursor: grab;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 10rem;
+  }
+`;
+
 const Introduce = () => {
   const isToggled = useAppSelector(
     (state: RootState) => state.toggle.isToggled
@@ -49,7 +63,15 @@ const Introduce = () => {
     <IntroduceOl className={isToggled ? "active" : ""}>
       <IntroduceLi>태양계 천체 공전 궤도 시뮬레이션입니다.</IntroduceLi>
       <IntroduceLi>
-        기산점은 보이저 2호가 발사된 1977년 8월 20일입니다.
+        기산점은{" "}
+        <LinkToWiki
+          href="https://en.wikipedia.org/wiki/Voyager_2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          보이저 2호
+        </LinkToWiki>
+        가 발사된 1977년 8월 20일입니다.
       </IntroduceLi>
       <IntroduceLi>
         모든 공전 궤도는 원으로 두고, 0.1초에 1일이 흐릅니다.
