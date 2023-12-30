@@ -147,7 +147,7 @@ const TimeCounter = () => {
 
   //TODO 날짜 카운터 부분
 
-  const [startDate] = useState(new Date(2022, 5, 15));
+  const [startDate] = useState(new Date(1977, 8, 20));
   // JS에서 월(month)은 0부터 시작하므로, new Date(2022, 5, 15)는 실제로 2022년 5월 15일이 아니라 2022년 6월 15일을 나타냄.
   // 이것은 JavaScript의 날짜 객체가 월을 0에서 시작해서 1을 빼야 올바른 월을 나타내는 특성 때문.
   const [currentDate, setCurrentDate] = useState(startDate);

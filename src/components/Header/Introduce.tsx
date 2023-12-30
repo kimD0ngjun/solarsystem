@@ -49,7 +49,7 @@ const Introduce = () => {
     <IntroduceOl className={isToggled ? "active" : ""}>
       <IntroduceLi>태양계 천체 공전 궤도 시뮬레이션입니다.</IntroduceLi>
       <IntroduceLi>
-        기산점은 행성정렬이 관측된 2022년 6월 15일입니다.
+        기산점은 보이저 2호가 발사된 1977년 8월 20일입니다.
       </IntroduceLi>
       <IntroduceLi>
         모든 공전 궤도는 원으로 두고, 0.1초에 1일이 흐릅니다.
